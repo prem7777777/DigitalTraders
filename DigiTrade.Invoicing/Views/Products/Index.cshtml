@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DigiTrade.Invoicing.Models.Product>
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Product Details</h1>
+
+<p>
+    <a asp-action="Create">Add New Product</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Processor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimaryCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrontCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Battery)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.BrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Processor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimaryCamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontCamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Battery)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Modify</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">View Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete Product</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
